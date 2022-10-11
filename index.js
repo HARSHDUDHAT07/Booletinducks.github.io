@@ -110,7 +110,7 @@ weatherBtn.addEventListener("click", function () {
 const fetchHeadlines = async () =>{
   const response = await fetch(HEADLINES_NEWS+API_KEY);
   newsDataArr = [];
-  if (response.status >= 200 && response.status < 300) {
+  if (response.status >= 10 && response.status < 6000) {
     const myJson = await response.json();
     newsDataArr = myJson.articles;
   } else {
@@ -126,7 +126,7 @@ const fetchHeadlines = async () =>{
 const fetchGeneralNews = async () =>{   //async has been a keyword for syncing the data
   const response = await fetch(GENERAL_NEWS+API_KEY);
   newsDataArr = [];
-  if (response.status >= 200 && response.status < 300) {
+  if (response.status >= 10 && response.status < 6000) {
     const myJson = await response.json();
     newsDataArr = myJson.articles;
   } else {
@@ -142,7 +142,7 @@ const fetchGeneralNews = async () =>{   //async has been a keyword for syncing t
 const fetchBusinessNews = async () =>{
   const response = await fetch(BUSINESS_NEWS+API_KEY);
   newsDataArr = [];
-  if (response.status >= 200 && response.status < 300) {
+  if (response.status >= 10 && response.status < 6000) {
     const myJson = await response.json();
     newsDataArr = myJson.articles;
   } else {
@@ -158,7 +158,7 @@ const fetchBusinessNews = async () =>{
 const fetchEntertainmentNews = async () =>{
   const response = await fetch(ENTERTAINMENT_NEWS+API_KEY);
   newsDataArr = [];
-  if (response.status >= 200 && response.status < 300) {
+  if (response.status >= 10 && response.status < 6000) {
     const myJson = await response.json();
     console.log(myJson);
     newsDataArr = myJson.articles;
@@ -175,7 +175,7 @@ const fetchEntertainmentNews = async () =>{
 const fetchSportsNews = async () =>{
   const response = await fetch(SPORTS_NEWS+API_KEY);
   newsDataArr = [];
-  if (response.status >= 200 && response.status < 300) {
+  if (response.status >= 10 && response.status < 6000) {
     const myJson = await response.json();
     newsDataArr = myJson.articles;
   } else {
@@ -191,7 +191,7 @@ const fetchSportsNews = async () =>{
 const fetchTechnologyNews = async () =>{
   const response = await fetch(TECHNOLOGY_NEWS+API_KEY);
   newsDataArr = [];
-  if (response.status >= 200 && response.status < 300) {
+  if (response.status >= 10 && response.status < 6000) {
     const myJson = await response.json();
     newsDataArr = myJson.articles;
   } else {
@@ -207,7 +207,7 @@ const fetchTechnologyNews = async () =>{
 const fetchStockNews = async () =>{
   const response = await fetch(STOCK_NEWS+API_KEY);
   newsDataArr = [];
-  if (response.status >= 200 && response.status < 300) {
+  if (response.status >= 10 && response.status < 6000) {
     const myJson = await response.json();
     newsDataArr = myJson.articles;
   } else {
@@ -223,7 +223,7 @@ const fetchStockNews = async () =>{
 const fetchHealthNews = async () =>{
   const response = await fetch(HEALTH_NEWS+API_KEY);
   newsDataArr = [];
-  if (response.status >= 200 && response.status < 300) {
+  if (response.status >= 10 && response.status < 6000) {
     const myJson = await response.json();
     newsDataArr = myJson.articles;
   } else {
@@ -239,7 +239,7 @@ const fetchHealthNews = async () =>{
 const fetchLifeStyleNews = async () =>{
   const response = await fetch(LIFESTYLE_NEWS+API_KEY);
   newsDataArr = [];
-  if (response.status >= 200 && response.status < 300) {
+  if (response.status >= 10 && response.status < 6000) {
     const myJson = await response.json();
     newsDataArr = myJson.articles;
   } else {
@@ -256,7 +256,7 @@ const fetchLifeStyleNews = async () =>{
 const fetchShoppingNews = async () =>{
   const response = await fetch(SHOPPING_NEWS+API_KEY);
   newsDataArr = [];
-  if (response.status >= 200 && response.status < 300) {
+  if (response.status >= 10 && response.status < 6000) {
     const myJson = await response.json();
     newsDataArr = myJson.articles;
   } else {
@@ -272,7 +272,7 @@ const fetchShoppingNews = async () =>{
 const fetchWeatherNews = async () =>{
   const response = await fetch(WEATHER_NEWS+API_KEY);
   newsDataArr = [];
-  if (response.status >= 200 && response.status < 300) {
+  if (response.status >= 10 && response.status < 6000) {
     const myJson = await response.json();
     newsDataArr = myJson.articles;
   } else {
@@ -292,7 +292,7 @@ const fetchWeatherNews = async () =>{
 //     SEARCH_NEWS + encodeURIComponent(newsQuery.value) + "&apiKey=" + API_KEY
 //   );
 //   newsDataArr = [];
-//   if (response.status >= 200 && response.status < 300) {
+//   if (response.status >= 10 && response.status < 6000) {
 //     const myJson = await response.json();
 //     newsDataArr = myJson.articles;
 //   } else {
