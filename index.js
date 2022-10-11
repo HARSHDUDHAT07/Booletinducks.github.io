@@ -19,6 +19,35 @@ const newsdetails = document.getElementById("newsdetails");
 
 // Array
 var newsDataArr = [];
+
+// apis
+// const API_KEY = "9411efe63ff6427ca1ca36cc6a6adfdc";//neel goyani
+const API_KEY = "2b9d15c042fd45dc9e26e2a21dfc0fc8"; //harsh dudhat
+const HEADLINES_NEWS =
+  "https://newsapi.org/v2/top-headlines?country=in&apiKey=";
+const GENERAL_NEWS =
+  "https://newsapi.org/v2/top-headlines?country=in&category=general&apiKey=";
+const BUSINESS_NEWS =
+  "https://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=";
+const SPORTS_NEWS =
+  "https://newsapi.org/v2/top-headlines?country=in&category=sports&apiKey=";
+const ENTERTAINMENT_NEWS =
+  "https://newsapi.org/v2/top-headlines?country=in&category=entertainment&apiKey=";
+const TECHNOLOGY_NEWS =
+  "https://newsapi.org/v2/top-headlines?country=in&category=technology&pageSize=8&apiKey=";
+const SEARCH_NEWS = "https://newsapi.org/v2/everything?q=";
+const STOCK_NEWS =
+  "https://newsapi.org/v2/everything?domains=wsj.com&pageSize=8&apiKey=";
+const HEALTH_NEWS =
+  "https://newsapi.org/v2/top-headlines?country=in&category=health&pageSize=8&apiKey=";
+const LIFESTYLE_NEWS =
+  "https://newsapi.org/v2/top-headlines?country=in&category=health&pageSize=8&apiKey=";
+const SHOPPING_NEWS =
+  "https://newsapi.org/v2/top-headlines?country=in&apiKey=";
+const WEATHER_NEWS =
+"https://newsapi.org/v2/top-headlines?country=in&category=sports&apiKey=";
+
+
 function displayNews() {
   newsdetails.innerHTML = "";
 
@@ -27,7 +56,7 @@ function displayNews() {
   //     return;
   // }
 
-  newsDataArr.forEach((news)=>{
+  newsDataArr.forEach((news) => {
     var date = news.publishedAt.split("T");
 
     var col = document.createElement("div");
@@ -76,33 +105,6 @@ function displayNews() {
     newsdetails.appendChild(col);
   });
 }
-
-// apis
-// const API_KEY = "9411efe63ff6427ca1ca36cc6a6adfdc";//neel goyani
-const API_KEY = "2b9d15c042fd45dc9e26e2a21dfc0fc8"; //harsh dudhat
-const HEADLINES_NEWS =
-  "https://newsapi.org/v2/top-headlines?country=in&apiKey=";
-const GENERAL_NEWS =
-  "https://newsapi.org/v2/top-headlines?country=in&category=general&apiKey=";
-const BUSINESS_NEWS =
-  "https://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=";
-const SPORTS_NEWS =
-  "https://newsapi.org/v2/top-headlines?country=in&category=sports&apiKey=";
-const ENTERTAINMENT_NEWS =
-  "https://newsapi.org/v2/top-headlines?country=in&category=entertainment&apiKey=";
-const TECHNOLOGY_NEWS =
-  "https://newsapi.org/v2/top-headlines?country=in&category=technology&pageSize=8&apiKey=";
-const SEARCH_NEWS = "https://newsapi.org/v2/everything?q=";
-const STOCK_NEWS =
-  "https://newsapi.org/v2/everything?domains=wsj.com&pageSize=8&apiKey=";
-const HEALTH_NEWS =
-  "https://newsapi.org/v2/top-headlines?country=in&category=health&pageSize=8&apiKey=";
-const LIFESTYLE_NEWS =
-  "https://newsapi.org/v2/top-headlines?country=in&category=health&pageSize=8&apiKey=";
-const SHOPPING_NEWS =
-  "https://newsapi.org/v2/top-headlines?country=in&apiKey=";
-const WEATHER_NEWS =
-"https://newsapi.org/v2/top-headlines?country=in&category=sports&apiKey=";
 
 window.onload = function () {
   newsType.innerHTML = "<h4>Headlines</h4>";
@@ -164,10 +166,10 @@ weatherBtn.addEventListener("click", function () {
 //   fetchQueryNews();
 // });
 
-const fetchHeadlines = async () =>{
-  const response = await fetch(HEADLINES_NEWS+API_KEY);
+const fetchHeadlines = async () => {
+  const response = await fetch(HEADLINES_NEWS + API_KEY);
   newsDataArr = [];
-  if (response.status >= 10 && response.status < 6000) {
+  if (response.status >= 200 && response.status < 300) {
     const myJson = await response.json();
     newsDataArr = myJson.articles;
   } else {
@@ -180,10 +182,10 @@ const fetchHeadlines = async () =>{
   displayNews();
 };
 
-const fetchGeneralNews = async () =>{   //async has been a keyword for syncing the data
-  const response = await fetch(GENERAL_NEWS+API_KEY);
+const fetchGeneralNews = async () => {   //async has been a keyword for syncing the data
+  const response = await fetch(GENERAL_NEWS + API_KEY);
   newsDataArr = [];
-  if (response.status >= 10 && response.status < 6000) {
+  if (response.status >= 200 && response.status < 300) {
     const myJson = await response.json();
     newsDataArr = myJson.articles;
   } else {
@@ -196,10 +198,10 @@ const fetchGeneralNews = async () =>{   //async has been a keyword for syncing t
   displayNews();
 };
 
-const fetchBusinessNews = async () =>{
-  const response = await fetch(BUSINESS_NEWS+API_KEY);
+const fetchBusinessNews = async () => {
+  const response = await fetch(BUSINESS_NEWS + API_KEY);
   newsDataArr = [];
-  if (response.status >= 10 && response.status < 6000) {
+  if (response.status >= 200 && response.status < 300) {
     const myJson = await response.json();
     newsDataArr = myJson.articles;
   } else {
@@ -212,10 +214,10 @@ const fetchBusinessNews = async () =>{
   displayNews();
 };
 
-const fetchEntertainmentNews = async () =>{
-  const response = await fetch(ENTERTAINMENT_NEWS+API_KEY);
+const fetchEntertainmentNews = async () => {
+  const response = await fetch(ENTERTAINMENT_NEWS + API_KEY);
   newsDataArr = [];
-  if (response.status >= 10 && response.status < 6000) {
+  if (response.status >= 200 && response.status < 300) {
     const myJson = await response.json();
     console.log(myJson);
     newsDataArr = myJson.articles;
@@ -229,10 +231,10 @@ const fetchEntertainmentNews = async () =>{
   displayNews();
 };
 
-const fetchSportsNews = async () =>{
-  const response = await fetch(SPORTS_NEWS+API_KEY);
+const fetchSportsNews = async () => {
+  const response = await fetch(SPORTS_NEWS + API_KEY);
   newsDataArr = [];
-  if (response.status >= 10 && response.status < 6000) {
+  if (response.status >= 200 && response.status < 300) {
     const myJson = await response.json();
     newsDataArr = myJson.articles;
   } else {
@@ -245,10 +247,10 @@ const fetchSportsNews = async () =>{
   displayNews();
 };
 
-const fetchTechnologyNews = async () =>{
-  const response = await fetch(TECHNOLOGY_NEWS+API_KEY);
+const fetchTechnologyNews = async () => {
+  const response = await fetch(TECHNOLOGY_NEWS + API_KEY);
   newsDataArr = [];
-  if (response.status >= 10 && response.status < 6000) {
+  if (response.status >= 200 && response.status < 300) {
     const myJson = await response.json();
     newsDataArr = myJson.articles;
   } else {
@@ -261,10 +263,10 @@ const fetchTechnologyNews = async () =>{
   displayNews();
 };
 
-const fetchStockNews = async () =>{
-  const response = await fetch(STOCK_NEWS+API_KEY);
+const fetchStockNews = async () => {
+  const response = await fetch(STOCK_NEWS + API_KEY);
   newsDataArr = [];
-  if (response.status >= 10 && response.status < 6000) {
+  if (response.status >= 200 && response.status < 300) {
     const myJson = await response.json();
     newsDataArr = myJson.articles;
   } else {
@@ -277,10 +279,10 @@ const fetchStockNews = async () =>{
   displayNews();
 };
 
-const fetchHealthNews = async () =>{
-  const response = await fetch(HEALTH_NEWS+API_KEY);
+const fetchHealthNews = async () => {
+  const response = await fetch(HEALTH_NEWS + API_KEY);
   newsDataArr = [];
-  if (response.status >= 10 && response.status < 6000) {
+  if (response.status >= 200 && response.status < 300) {
     const myJson = await response.json();
     newsDataArr = myJson.articles;
   } else {
@@ -293,10 +295,10 @@ const fetchHealthNews = async () =>{
   displayNews();
 };
 
-const fetchLifeStyleNews = async () =>{
-  const response = await fetch(LIFESTYLE_NEWS+API_KEY);
+const fetchLifeStyleNews = async () => {
+  const response = await fetch(LIFESTYLE_NEWS + API_KEY);
   newsDataArr = [];
-  if (response.status >= 10 && response.status < 6000) {
+  if (response.status >= 200 && response.status < 300) {
     const myJson = await response.json();
     newsDataArr = myJson.articles;
   } else {
@@ -310,10 +312,10 @@ const fetchLifeStyleNews = async () =>{
 };
 
 
-const fetchShoppingNews = async () =>{
-  const response = await fetch(SHOPPING_NEWS+API_KEY);
+const fetchShoppingNews = async () => {
+  const response = await fetch(SHOPPING_NEWS + API_KEY);
   newsDataArr = [];
-  if (response.status >= 10 && response.status < 6000) {
+  if (response.status >= 200 && response.status < 300) {
     const myJson = await response.json();
     newsDataArr = myJson.articles;
   } else {
@@ -326,10 +328,10 @@ const fetchShoppingNews = async () =>{
   displayNews();
 };
 
-const fetchWeatherNews = async () =>{
-  const response = await fetch(WEATHER_NEWS+API_KEY);
+const fetchWeatherNews = async () => {
+  const response = await fetch(WEATHER_NEWS + API_KEY);
   newsDataArr = [];
-  if (response.status >= 10 && response.status < 6000) {
+  if (response.status >= 200 && response.status < 300) {
     const myJson = await response.json();
     newsDataArr = myJson.articles;
   } else {
@@ -349,7 +351,7 @@ const fetchWeatherNews = async () =>{
 //     SEARCH_NEWS + encodeURIComponent(newsQuery.value) + "&apiKey=" + API_KEY
 //   );
 //   newsDataArr = [];
-//   if (response.status >= 10 && response.status < 6000) {
+//   if (response.status >= 200 && response.status < 300) {
 //     const myJson = await response.json();
 //     newsDataArr = myJson.articles;
 //   } else {
@@ -361,4 +363,5 @@ const fetchWeatherNews = async () =>{
 
 //   displayNews();
 // };
+
 
