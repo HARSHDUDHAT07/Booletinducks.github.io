@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;600&display=swap");
+
+      body,
+      html {
+        height: 100%;
+        margin: 0;
+        font-family: "Poppins", sans-serif;
+      }
+      .bg {
+        background-image: url(whback.jpg);
+        height: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        border-style: cover;
+        filter: blur(20px);
+        -webkit-filter: blur(20px);
+      }
+      .material-symbols-outlined {
+        font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 48;
+      }
+      .container {
+        top: 50%;
+        left: 50%;
+        position: absolute;
+        transform: translate(-50%, -50%);
+      }
+      .widget {
+        width: 400px;
+        height: 200px;
+        border-radius: 20px;
+        background: rgba(299, 299, 299, 0.4);
+      }
+      .widget .left {
+        position: absolute;
+        left: 0;
+        width: 200px;
+      }
+      .widget .right {
+        position: absolute;
+        right: 0;
+        width: 200px;
+        color: #fff;
+        margin: 50px 0;
+      }
+      .icon {
+        width: 75%;
+        margin-bottom: -30px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .weather-status {
+        color: #fff;
+        text-align: center;
+        margin-top: 0;
+      }
+      .widget .right .city {
+        font-style: 1em;
+        text-align: center;
+        margin: 0;
+        text-shadow: 1px 1px 5px #707070;
+      }
+      .widget .right .degree{
+        font-size: 3em;
+        font-weight: bold;
+        text-align: center;
+        margin: 0;
+        text-shadow: 1px 1px 5px #707070;
+      }
+      .widget .bottom{
+        width: 100%;
+        position: absolute;
+        bottom:10px;
+        display:flex;
+        justify-content: center;
+        color: #fff;
+      }
+      .widget .bottom div{
+        margin: 5px 10px 5px 10px;
+        text-align: center;
+        line-height: 100%;
+        font-size:0.83em;
+        text-shadow: 1px 1px 5px #707070;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="bg"></div>
+    <div class="container">
+      <div class="widget">
+        <div class="left">
+          <img src="image/sun.svg" class="icon" alt="sun" />
+
+          <h5 class="weather-status">Partly Cloud</h5>
+        </div>
+        <div class="right">
+          <h5 class="city">Surat</h5>
+          <h5 class="degree">25&#176;C</h5>
+        </div>
+        <div class="bottom">
+            <div>
+                Wind Speed <span>22 kmph</span>
+            </div>
+            <div>
+                Cloud Cover <span>33%</span>
+            </div>
+            <div>
+                Pressure <span>1010 mb</span>
+            </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
