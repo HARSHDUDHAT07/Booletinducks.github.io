@@ -8,9 +8,9 @@ const technologyBtn = document.getElementById("technology");
 //harsh
 const stockBtn = document.getElementById("stock");
 const healthBtn = document.getElementById("health");
-const lifestyleBtn = document.getElementById("lifestyle");
-const shoppingBtn = document.getElementById("shopping");
-const weatherBtn = document.getElementById("weather");
+// const lifestyleBtn = document.getElementById("lifestyle");
+const cryptoBtn = document.getElementById("cryptocurrency");
+// const weatherBtn = document.getElementById("weather");
 // const searchBtn = document.getElementById("searchBtn");
 
 // const newsQuery = document.getElementById("newsQuery");
@@ -40,12 +40,12 @@ const STOCK_NEWS =
   "https://newsapi.org/v2/everything?domains=wsj.com&pageSize=8&apiKey=";
 const HEALTH_NEWS =
   "https://newsapi.org/v2/top-headlines?country=in&category=health&pageSize=8&apiKey=";
-const LIFESTYLE_NEWS =
-  "https://newsapi.org/v2/top-headlines?country=in&category=health&pageSize=8&apiKey=";
-const SHOPPING_NEWS =
-  "https://newsapi.org/v2/top-headlines?country=in&apiKey=";
-const WEATHER_NEWS =
-"https://newsapi.org/v2/top-headlines?country=in&category=sports&apiKey=";
+// const LIFESTYLE_NEWS =
+//   "https://newsapi.org/v2/top-headlines?country=in&category=health&pageSize=8&apiKey=";
+const CRYPTOCURRENCY_NEWS =
+  "https://newsapi.org/v2/everything?q=bitcoin&apiKey=";
+// const WEATHER_NEWS =
+// "https://newsapi.org/v2/top-headlines?country=in&category=sports&apiKey=";
 
 
 function displayNews() {
@@ -112,7 +112,7 @@ window.onload = function () {
 };
 
 generalBtn.addEventListener("click", function () {
-  newsType.innerHTML = "<h4z>General news</h4z>";
+  newsType.innerHTML = "<h4>General news</h4>";
   fetchGeneralNews();
 });
 
@@ -146,20 +146,20 @@ healthBtn.addEventListener("click", function () {
   fetchHealthNews();
 });
 
-lifestyleBtn.addEventListener("click", function () {
-  newsType.innerHTML = "<h4>LifeStyle</h4>";
-  fetchLifeStyleNews();
+// lifestyleBtn.addEventListener("click", function () {
+//   newsType.innerHTML = "<h4>LifeStyle</h4>";
+//   fetchLifeStyleNews();
+// });
+
+cryptoBtn.addEventListener("click", function () {
+  newsType.innerHTML = "<h4>CryptoCurrency</h4>";
+  fetchCryptoNews();
 });
 
-shoppingBtn.addEventListener("click", function () {
-  newsType.innerHTML = "<h4>Shopping</h4>";
-  fetchShoppingNews();
-});
-
-weatherBtn.addEventListener("click", function () {
-  newsType.innerHTML = "<h4>Weather</h4>";
-  fetchWeatherNews();
-});
+// weatherBtn.addEventListener("click", function () {
+//   newsType.innerHTML = "<h4>Weather</h4>";
+//   fetchWeatherNews();
+// });
 
 // searchBtn.addEventListener("click", function () {
 //   newsType.innerHTML = "<h4>Search : " + newsQuery.value + "</h4>";
@@ -295,8 +295,25 @@ const fetchHealthNews = async () => {
   displayNews();
 };
 
-const fetchLifeStyleNews = async () => {
-  const response = await fetch(LIFESTYLE_NEWS + API_KEY);
+// const fetchLifeStyleNews = async () => {
+//   const response = await fetch(LIFESTYLE_NEWS + API_KEY);
+//   newsDataArr = [];
+//   if (response.status >= 200 && response.status < 300) {
+//     const myJson = await response.json();
+//     newsDataArr = myJson.articles;
+//   } else {
+//     // handle errors
+//     console.log(response.status, response.statusText);
+//     newsdetails.innerHTML = "<h5>No data found.</h5>";
+//     return;
+//   }
+
+//   displayNews();
+// };
+
+
+const fetchCryptoNews = async () => {
+  const response = await fetch(CRYPTOCURRENCY_NEWS + API_KEY);
   newsDataArr = [];
   if (response.status >= 200 && response.status < 300) {
     const myJson = await response.json();
@@ -311,38 +328,21 @@ const fetchLifeStyleNews = async () => {
   displayNews();
 };
 
+// const fetchWeatherNews = async () => {
+//   const response = await fetch(WEATHER_NEWS + API_KEY);
+//   newsDataArr = [];
+//   if (response.status >= 200 && response.status < 300) {
+//     const myJson = await response.json();
+//     newsDataArr = myJson.articles;
+//   } else {
+//     // handle errors
+//     console.log(response.status, response.statusText);
+//     newsdetails.innerHTML = "<h5>No data found.</h5>";
+//     return;
+//   }
 
-const fetchShoppingNews = async () => {
-  const response = await fetch(SHOPPING_NEWS + API_KEY);
-  newsDataArr = [];
-  if (response.status >= 200 && response.status < 300) {
-    const myJson = await response.json();
-    newsDataArr = myJson.articles;
-  } else {
-    // handle errors
-    console.log(response.status, response.statusText);
-    newsdetails.innerHTML = "<h5>No data found.</h5>";
-    return;
-  }
-
-  displayNews();
-};
-
-const fetchWeatherNews = async () => {
-  const response = await fetch(WEATHER_NEWS + API_KEY);
-  newsDataArr = [];
-  if (response.status >= 200 && response.status < 300) {
-    const myJson = await response.json();
-    newsDataArr = myJson.articles;
-  } else {
-    // handle errors
-    console.log(response.status, response.statusText);
-    newsdetails.innerHTML = "<h5>No data found.</h5>";
-    return;
-  }
-
-  displayNews();
-};
+//   displayNews();
+// };
 
 // const fetchQueryNews = async () => {
 //   if (newsQuery.value == null) return;
