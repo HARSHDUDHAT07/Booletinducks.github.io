@@ -3,8 +3,34 @@
   padding: 0;
   box-sizing: border-box;
 }
+/* .btn {
+  background-color: #000000;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  font-size: 14px;
+  margin: 4px 2px;
+  opacity: 0.6;
+  transition: 0.01s;
+}
 
-.logonavbar h3{
+.btn:hover {opacity: 2} */
+.logonavbar {
+  font-family: 'New Rocker', cursive;
+  font-size: 32px;
+  font-weight: bold;
+  color: rgb(57, 39, 179);
+  text-align: center;
+  margin-top: 10px;
+  /* justify-content: space-evenly; */
+  /* position: absolute; */
+}
+.logoim{
+  margin-top: -8px;
+  width: 40px;
+}
+/* .logonavbar h3{
   text-decoration: none;
 }
 .logonavbar {
@@ -14,13 +40,13 @@
   color: rgb(29, 29, 32);
   text-align: center;
   margin-top: 10px;
-  /* padding: 0.1px;  */
-  display: inline;
-  align-content: center;
+  padding: 0.1px;  */
+  /* display: inline;
+  align-content: center; */
   
   /* justify-content: space-evenly; */
   /* position: absolute; */
-}
+/* } */
 
 .fa-bars {
   float: left;
